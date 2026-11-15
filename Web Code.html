@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ছবি দেখুন, দাম জানুন, আর সহজে অর্ডার করুন।">
+<title>আপনার ব্যবসার নাম</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700;800&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--ink:#161a33;--blue:#2638d9;--sun:#ffc531;--tint:#eef0ff;--mute:#4a4f6a;color-scheme:light}
+body{margin:0;font-family:'Hind Siliguri',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+h1,h2,h3{font-family:'Baloo Da 2','Hind Siliguri',system-ui,sans-serif;line-height:1.25;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+header{border-bottom:2px solid var(--ink)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:12px}
+.brand{font-family:'Baloo Da 2',sans-serif;font-weight:800;font-size:1.25rem;text-decoration:none}
+nav a{margin-left:16px;font-weight:600;text-decoration:none}
+.hero{background:var(--tint);border-bottom:2px solid var(--ink);padding:48px 0 56px}
+.hero h1{font-size:clamp(2rem,7vw,3.5rem);font-weight:800;max-width:20ch}
+.hero p{font-size:1.1rem;max-width:44ch;color:var(--mute);margin:14px 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:2px solid var(--ink);background:#fff;color:var(--ink);font:inherit;font-weight:700;text-decoration:none;box-shadow:4px 4px 0 var(--ink);cursor:pointer}
+.btn.primary{background:var(--blue);color:#fff}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.strip{background:var(--ink);color:#fff;padding:14px 0}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 28px;font-weight:600}
+section.products{padding:48px 0 56px}
+.products h2{font-size:1.9rem}
+.products .sub{margin:4px 0 24px;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+.tile{display:flex;flex-direction:column;border:2px solid var(--ink);background:#fff}
+.pic{position:relative;aspect-ratio:1;display:grid;place-items:center;border-bottom:2px solid var(--ink);overflow:hidden}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph{font-family:'Baloo Da 2',sans-serif;font-size:4rem;font-weight:800;opacity:.3}
+.price{position:absolute;left:10px;bottom:10px;background:var(--sun);border:2px solid var(--ink);border-radius:999px;padding:1px 12px;font-weight:800;transform:rotate(-3deg)}
+.info{padding:12px 14px;flex:1}
+.info h3{font-size:1.1rem}
+.info p{margin:4px 0 0;color:var(--mute);font-size:.95rem}
+.order{min-height:48px;border:0;border-top:2px solid var(--ink);background:var(--blue);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.order:active{background:var(--ink)}
+footer{background:var(--tint);border-top:2px solid var(--ink);padding:40px 0}
+footer h2{font-size:1.5rem;margin-bottom:10px}
+footer p{margin:2px 0}
+.copy{margin-top:20px;color:var(--mute);font-size:.9rem}
+dialog{border:2px solid var(--ink);border-radius:0;padding:20px;width:min(92vw,420px);color:var(--ink);background:#fff}
+dialog::backdrop{background:rgba(22,26,51,.55)}
+dialog h2{font-size:1.4rem}
+label{display:block;font-weight:600;margin-top:12px}
+input,textarea{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:2px solid var(--ink);border-radius:0;background:#fff;color:var(--ink)}
+.qty{display:flex;align-items:center;gap:14px;margin-top:6px}
+.qty button{width:44px;height:44px;border:2px solid var(--ink);background:#fff;font-size:1.4rem;cursor:pointer;color:var(--ink)}
+.qty span{min-width:2ch;text-align:center;font-weight:700;font-size:1.2rem}
+.sum{display:flex;justify-content:space-between;margin:16px 0 4px;font-weight:700;font-size:1.1rem}
+.actions{display:grid;gap:12px;margin-top:14px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#" data-name>আপনার ব্যবসার নাম</a>
+    <nav><a href="#products">পণ্য</a><a href="#contact">যোগাযোগ</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>আপনার পছন্দের পণ্য, ঘরে বসেই অর্ডার করুন</h1>
+    <p>ছবি দেখুন, দাম জানুন, আর এক ক্লিকে WhatsApp-এ অর্ডার দিন।</p>
+    <div class="btns">
+      <a class="btn primary" href="#products">পণ্য দেখুন</a>
+      <a class="btn" data-wa href="#">WhatsApp-এ কথা বলুন</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap"><span>ক্যাশ অন ডেলিভারি</span><span>সারা দেশে ডেলিভারি</span><span>WhatsApp-এ সহজ অর্ডার</span></div></div>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <h2>আমাদের পণ্য</h2>
+    <p class="sub">পছন্দের পণ্যের নিচে অর্ডার বাটন চাপুন।</p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>যোগাযোগ</h2>
+    <p>ফোন: <a data-tel href="#"></a></p>
+    <p>WhatsApp: <a data-wa href="#">মেসেজ পাঠান</a></p>
+    <p>ঠিকানা: <span id="addr"></span></p>
+    <p>ফেসবুক: <a id="fb" href="#">আমাদের পেজ</a></p>
+    <p class="copy">© <span id="yr"></span> <span data-name></span></p>
+  </div>
+</footer>
+
+<dialog id="dlg">
+  <form id="form">
+    <h2>অর্ডার: <span id="pname"></span></h2>
+    <label>পরিমাণ</label>
+    <div class="qty">
+      <button type="button" id="minus" aria-label="কমান">−</button>
+      <span id="qty">১</span>
+      <button type="button" id="plus" aria-label="বাড়ান">+</button>
+    </div>
+    <label for="n">আপনার নাম</label>
+    <input id="n" name="name" required autocomplete="name">
+    <label for="p">মোবাইল নম্বর</label>
+    <input id="p" name="phone" type="tel" inputmode="tel" required minlength="8" autocomplete="tel">
+    <label for="a">ঠিকানা</label>
+    <textarea id="a" name="address" rows="2" required autocomplete="street-address"></textarea>
+    <div class="sum"><span>মোট</span><span id="total"></span></div>
+    <div class="actions">
+      <button class="btn primary" type="submit">WhatsApp-এ অর্ডার পাঠান</button>
+      <button class="btn" type="button" id="cancel">বাতিল</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+/* ===== এখানে নিজের তথ্য বসান ===== */
+const CONFIG = {
+  name: 'আপনার ব্যবসার নাম',
+  whatsapp: '8801XXXXXXXXX',   // দেশের কোডসহ, + ছাড়া
+  phone: '01XXXXXXXXX',
+  address: 'আপনার ঠিকানা',
+  facebook: 'https://facebook.com/yourpage',
+  currency: '৳'
+};
+/* ছবি রাখুন images ফোল্ডারে। ছবি না পেলে নামের প্রথম অক্ষর দেখাবে। */
+const PRODUCTS = [
+  { name: 'পণ্য ১', desc: 'পণ্যের সংক্ষিপ্ত বর্ণনা লিখুন।', price: 450,  img: 'images/product-1.jpg' },
+  { name: 'পণ্য ২', desc: 'পণ্যের সংক্ষিপ্ত বর্ণনা লিখুন।', price: 850,  img: 'images/product-2.jpg' },
+  { name: 'পণ্য ৩', desc: 'পণ্যের সংক্ষিপ্ত বর্ণনা লিখুন।', price: 1200, img: 'images/product-3.jpg' },
+  { name: 'পণ্য ৪', desc: 'পণ্যের সংক্ষিপ্ত বর্ণনা লিখুন।', price: 650,  img: 'images/product-4.jpg' },
+  { name: 'পণ্য ৫', desc: 'পণ্যের সংক্ষিপ্ত বর্ণনা লিখুন।', price: 990,  img: 'images/product-5.jpg' },
+  { name: 'পণ্য ৬', desc: 'পণ্যের সংক্ষিপ্ত বর্ণনা লিখুন।', price: 1500, img: 'images/product-6.jpg' }
+];
+/* ================================== */
+
+const $ = (s) => document.querySelector(s);
+const bn = (n) => n.toLocaleString('bn-BD');
+const fmt = (n) => CONFIG.currency + bn(n);
+const waLink = (text) => 'https://wa.me/' + CONFIG.whatsapp + (text ? '?text=' + encodeURIComponent(text) : '');
+
+document.title = CONFIG.name;
+document.querySelectorAll('[data-name]').forEach((e) => (e.textContent = CONFIG.name));
+document.querySelectorAll('[data-wa]').forEach((e) => { e.href = waLink(); e.target = '_blank'; e.rel = 'noopener'; });
+document.querySelectorAll('[data-tel]').forEach((e) => { e.href = 'tel:' + CONFIG.phone; e.textContent = CONFIG.phone; });
+$('#addr').textContent = CONFIG.address;
+$('#fb').href = CONFIG.facebook;
+$('#yr').textContent = new Date().getFullYear();
+
+const tones = ['#dfe3ff', '#ffe9a8', '#d4f1e4', '#ffd9d9'];
+PRODUCTS.forEach((p, i) => {
+  const el = document.createElement('article');
+  el.className = 'tile';
+  el.innerHTML =
+    '<div class="pic" style="background:' + tones[i % 4] + '"><span class="ph">' + p.name.charAt(0) + '</span>' +
+    '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy"><span class="price">' + fmt(p.price) + '</span></div>' +
+    '<div class="info"><h3>' + p.name + '</h3><p>' + p.desc + '</p></div>' +
+    '<button class="order" type="button">অর্ডার করুন</button>';
+  el.querySelector('img').addEventListener('error', (e) => e.target.remove());
+  el.querySelector('.order').addEventListener('click', () => openOrder(p));
+  $('#grid').appendChild(el);
+});
+
+const dlg = $('#dlg'), form = $('#form');
+let cur = null, qty = 1;
+function refresh() { $('#qty').textContent = bn(qty); $('#total').textContent = fmt(cur.price * qty); }
+function openOrder(p) { cur = p; qty = 1; $('#pname').textContent = p.name; refresh(); dlg.showModal(); }
+$('#minus').addEventListener('click', () => { qty = Math.max(1, qty - 1); refresh(); });
+$('#plus').addEventListener('click', () => { qty = Math.min(99, qty + 1); refresh(); });
+$('#cancel').addEventListener('click', () => dlg.close());
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const f = new FormData(form);
+  const msg = [
+    'আসসালামু আলাইকুম, আমি অর্ডার করতে চাই।',
+    'পণ্য: ' + cur.name,
+    'পরিমাণ: ' + bn(qty),
+    'মোট: ' + fmt(cur.price * qty),
+    'নাম: ' + f.get('name'),
+    'মোবাইল: ' + f.get('phone'),
+    'ঠিকানা: ' + f.get('address')
+  ].join('\n');
+  window.open(waLink(msg), '_blank', 'noopener');
+  dlg.close();
+  form.reset();
+});
+</script>
+</body>
+</html>
